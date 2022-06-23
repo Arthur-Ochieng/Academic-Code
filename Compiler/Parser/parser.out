@@ -1,0 +1,2150 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement_list
+Rule 1     statement_list -> statement
+Rule 2     statement -> store
+Rule 3     statement -> read
+Rule 4     statement -> write
+Rule 5     statement -> for
+Rule 6     statement -> while
+Rule 7     statement -> if
+Rule 8     write -> PRINT LPAREN expression RPAREN
+Rule 9     write -> PRINT LPAREN STRINGVARIBABLE RPAREN
+Rule 10    write -> PRINT LPAREN INTEGERVARIBABLE RPAREN
+Rule 11    write -> PRINT LPAREN NUMBER RPAREN
+Rule 12    write -> PRINT LPAREN STRING RPAREN
+Rule 13    if -> IF expression COLON body
+Rule 14    if -> IF expression COLON body ELSE COLON body
+Rule 15    while -> WHILE expression COLON body
+Rule 16    for -> FOR expression COLON body
+Rule 17    read -> INPUT LPAREN RPAREN
+Rule 18    store -> term
+Rule 19    store -> expression
+Rule 20    body -> statement_list
+Rule 21    body -> statement
+Rule 22    expression -> term
+Rule 23    expression -> expression PLUS term
+Rule 24    expression -> expression MINUS term
+Rule 25    expression -> expression TIMES term
+Rule 26    expression -> expression DIVIDE term
+Rule 27    expression -> expression MOD term
+Rule 28    expression -> expression LESS term
+Rule 29    expression -> expression LESSEQUAL term
+Rule 30    expression -> expression GREATER term
+Rule 31    expression -> expression GREATEQUAL term
+Rule 32    term -> term TIMES factor
+Rule 33    term -> term DIVIDE factor
+Rule 34    term -> term MOD factor
+Rule 35    term -> term LESS factor
+Rule 36    term -> term GREATER factor
+Rule 37    term -> term GREATEQUAL factor
+Rule 38    term -> term EQUAL factor
+Rule 39    term -> term EQUALTO factor
+Rule 40    term -> factor
+Rule 41    factor -> NUMBER
+Rule 42    factor -> LPAREN expression RPAREN
+Rule 43    factor -> LPAREN STRINGVARIBABLE RPAREN
+Rule 44    factor -> LPAREN INTEGERVARIBABLE RPAREN
+
+Terminals, with rules where they appear
+
+COLON                : 13 14 14 15 16
+DIVIDE               : 26 33
+ELSE                 : 14
+EQUAL                : 38
+EQUALTO              : 39
+FOR                  : 16
+GREATEQUAL           : 31 37
+GREATER              : 30 36
+IF                   : 13 14
+INPUT                : 17
+INTEGERVARIBABLE     : 10 44
+LESS                 : 28 35
+LESSEQUAL            : 29
+LPAREN               : 8 9 10 11 12 17 42 43 44
+MINUS                : 24
+MOD                  : 27 34
+NUMBER               : 11 41
+PLUS                 : 23
+PRINT                : 8 9 10 11 12
+RPAREN               : 8 9 10 11 12 17 42 43 44
+STRING               : 12
+STRINGVARIBABLE      : 9 43
+TIMES                : 25 32
+WHILE                : 15
+error                : 
+
+Nonterminals, with rules where they appear
+
+body                 : 13 14 14 15 16
+expression           : 8 13 14 15 16 19 23 24 25 26 27 28 29 30 31 42
+factor               : 32 33 34 35 36 37 38 39 40
+for                  : 5
+if                   : 7
+read                 : 3
+statement            : 1 21
+statement_list       : 20 0
+store                : 2
+term                 : 18 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39
+while                : 6
+write                : 4
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement_list
+    (1) statement_list -> . statement
+    (2) statement -> . store
+    (3) statement -> . read
+    (4) statement -> . write
+    (5) statement -> . for
+    (6) statement -> . while
+    (7) statement -> . if
+    (18) store -> . term
+    (19) store -> . expression
+    (17) read -> . INPUT LPAREN RPAREN
+    (8) write -> . PRINT LPAREN expression RPAREN
+    (9) write -> . PRINT LPAREN STRINGVARIBABLE RPAREN
+    (10) write -> . PRINT LPAREN INTEGERVARIBABLE RPAREN
+    (11) write -> . PRINT LPAREN NUMBER RPAREN
+    (12) write -> . PRINT LPAREN STRING RPAREN
+    (16) for -> . FOR expression COLON body
+    (15) while -> . WHILE expression COLON body
+    (13) if -> . IF expression COLON body
+    (14) if -> . IF expression COLON body ELSE COLON body
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    INPUT           shift and go to state 11
+    PRINT           shift and go to state 13
+    FOR             shift and go to state 15
+    WHILE           shift and go to state 16
+    IF              shift and go to state 17
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    statement_list                 shift and go to state 1
+    statement                      shift and go to state 2
+    store                          shift and go to state 3
+    read                           shift and go to state 4
+    write                          shift and go to state 5
+    for                            shift and go to state 6
+    while                          shift and go to state 7
+    if                             shift and go to state 8
+    term                           shift and go to state 9
+    expression                     shift and go to state 10
+    factor                         shift and go to state 18
+
+state 1
+
+    (0) S' -> statement_list .
+
+
+
+state 2
+
+    (1) statement_list -> statement .
+
+    $end            reduce using rule 1 (statement_list -> statement .)
+
+
+state 3
+
+    (2) statement -> store .
+
+    $end            reduce using rule 2 (statement -> store .)
+    ELSE            reduce using rule 2 (statement -> store .)
+
+
+state 4
+
+    (3) statement -> read .
+
+    $end            reduce using rule 3 (statement -> read .)
+    ELSE            reduce using rule 3 (statement -> read .)
+
+
+state 5
+
+    (4) statement -> write .
+
+    $end            reduce using rule 4 (statement -> write .)
+    ELSE            reduce using rule 4 (statement -> write .)
+
+
+state 6
+
+    (5) statement -> for .
+
+    $end            reduce using rule 5 (statement -> for .)
+    ELSE            reduce using rule 5 (statement -> for .)
+
+
+state 7
+
+    (6) statement -> while .
+
+    $end            reduce using rule 6 (statement -> while .)
+    ELSE            reduce using rule 6 (statement -> while .)
+
+
+state 8
+
+    (7) statement -> if .
+
+    $end            reduce using rule 7 (statement -> if .)
+    ELSE            reduce using rule 7 (statement -> if .)
+
+
+state 9
+
+    (18) store -> term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+    (22) expression -> term .
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+  ! reduce/reduce conflict for $end resolved using rule 18 (store -> term .)
+  ! reduce/reduce conflict for ELSE resolved using rule 18 (store -> term .)
+    $end            reduce using rule 18 (store -> term .)
+    ELSE            reduce using rule 18 (store -> term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+    PLUS            reduce using rule 22 (expression -> term .)
+    MINUS           reduce using rule 22 (expression -> term .)
+    LESSEQUAL       reduce using rule 22 (expression -> term .)
+
+  ! TIMES           [ reduce using rule 22 (expression -> term .) ]
+  ! DIVIDE          [ reduce using rule 22 (expression -> term .) ]
+  ! MOD             [ reduce using rule 22 (expression -> term .) ]
+  ! LESS            [ reduce using rule 22 (expression -> term .) ]
+  ! GREATER         [ reduce using rule 22 (expression -> term .) ]
+  ! GREATEQUAL      [ reduce using rule 22 (expression -> term .) ]
+  ! $end            [ reduce using rule 22 (expression -> term .) ]
+  ! ELSE            [ reduce using rule 22 (expression -> term .) ]
+
+
+state 10
+
+    (19) store -> expression .
+    (23) expression -> expression . PLUS term
+    (24) expression -> expression . MINUS term
+    (25) expression -> expression . TIMES term
+    (26) expression -> expression . DIVIDE term
+    (27) expression -> expression . MOD term
+    (28) expression -> expression . LESS term
+    (29) expression -> expression . LESSEQUAL term
+    (30) expression -> expression . GREATER term
+    (31) expression -> expression . GREATEQUAL term
+
+    $end            reduce using rule 19 (store -> expression .)
+    ELSE            reduce using rule 19 (store -> expression .)
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    TIMES           shift and go to state 29
+    DIVIDE          shift and go to state 30
+    MOD             shift and go to state 31
+    LESS            shift and go to state 32
+    LESSEQUAL       shift and go to state 33
+    GREATER         shift and go to state 34
+    GREATEQUAL      shift and go to state 35
+
+
+state 11
+
+    (17) read -> INPUT . LPAREN RPAREN
+
+    LPAREN          shift and go to state 36
+
+
+state 12
+
+    (42) factor -> LPAREN . expression RPAREN
+    (43) factor -> LPAREN . STRINGVARIBABLE RPAREN
+    (44) factor -> LPAREN . INTEGERVARIBABLE RPAREN
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    STRINGVARIBABLE shift and go to state 38
+    INTEGERVARIBABLE shift and go to state 39
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 37
+    term                           shift and go to state 40
+    factor                         shift and go to state 18
+
+state 13
+
+    (8) write -> PRINT . LPAREN expression RPAREN
+    (9) write -> PRINT . LPAREN STRINGVARIBABLE RPAREN
+    (10) write -> PRINT . LPAREN INTEGERVARIBABLE RPAREN
+    (11) write -> PRINT . LPAREN NUMBER RPAREN
+    (12) write -> PRINT . LPAREN STRING RPAREN
+
+    LPAREN          shift and go to state 41
+
+
+state 14
+
+    (41) factor -> NUMBER .
+
+    TIMES           reduce using rule 41 (factor -> NUMBER .)
+    DIVIDE          reduce using rule 41 (factor -> NUMBER .)
+    MOD             reduce using rule 41 (factor -> NUMBER .)
+    LESS            reduce using rule 41 (factor -> NUMBER .)
+    GREATER         reduce using rule 41 (factor -> NUMBER .)
+    GREATEQUAL      reduce using rule 41 (factor -> NUMBER .)
+    EQUAL           reduce using rule 41 (factor -> NUMBER .)
+    EQUALTO         reduce using rule 41 (factor -> NUMBER .)
+    $end            reduce using rule 41 (factor -> NUMBER .)
+    PLUS            reduce using rule 41 (factor -> NUMBER .)
+    MINUS           reduce using rule 41 (factor -> NUMBER .)
+    LESSEQUAL       reduce using rule 41 (factor -> NUMBER .)
+    RPAREN          reduce using rule 41 (factor -> NUMBER .)
+    COLON           reduce using rule 41 (factor -> NUMBER .)
+    ELSE            reduce using rule 41 (factor -> NUMBER .)
+
+
+state 15
+
+    (16) for -> FOR . expression COLON body
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 42
+    term                           shift and go to state 40
+    factor                         shift and go to state 18
+
+state 16
+
+    (15) while -> WHILE . expression COLON body
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 43
+    term                           shift and go to state 40
+    factor                         shift and go to state 18
+
+state 17
+
+    (13) if -> IF . expression COLON body
+    (14) if -> IF . expression COLON body ELSE COLON body
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 44
+    term                           shift and go to state 40
+    factor                         shift and go to state 18
+
+state 18
+
+    (40) term -> factor .
+
+    TIMES           reduce using rule 40 (term -> factor .)
+    DIVIDE          reduce using rule 40 (term -> factor .)
+    MOD             reduce using rule 40 (term -> factor .)
+    LESS            reduce using rule 40 (term -> factor .)
+    GREATER         reduce using rule 40 (term -> factor .)
+    GREATEQUAL      reduce using rule 40 (term -> factor .)
+    EQUAL           reduce using rule 40 (term -> factor .)
+    EQUALTO         reduce using rule 40 (term -> factor .)
+    $end            reduce using rule 40 (term -> factor .)
+    PLUS            reduce using rule 40 (term -> factor .)
+    MINUS           reduce using rule 40 (term -> factor .)
+    LESSEQUAL       reduce using rule 40 (term -> factor .)
+    RPAREN          reduce using rule 40 (term -> factor .)
+    COLON           reduce using rule 40 (term -> factor .)
+    ELSE            reduce using rule 40 (term -> factor .)
+
+
+state 19
+
+    (32) term -> term TIMES . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    factor                         shift and go to state 45
+
+state 20
+
+    (33) term -> term DIVIDE . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    factor                         shift and go to state 46
+
+state 21
+
+    (34) term -> term MOD . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    factor                         shift and go to state 47
+
+state 22
+
+    (35) term -> term LESS . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    factor                         shift and go to state 48
+
+state 23
+
+    (36) term -> term GREATER . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    factor                         shift and go to state 49
+
+state 24
+
+    (37) term -> term GREATEQUAL . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    factor                         shift and go to state 50
+
+state 25
+
+    (38) term -> term EQUAL . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    factor                         shift and go to state 51
+
+state 26
+
+    (39) term -> term EQUALTO . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    factor                         shift and go to state 52
+
+state 27
+
+    (23) expression -> expression PLUS . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 53
+    factor                         shift and go to state 18
+
+state 28
+
+    (24) expression -> expression MINUS . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 54
+    factor                         shift and go to state 18
+
+state 29
+
+    (25) expression -> expression TIMES . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 55
+    factor                         shift and go to state 18
+
+state 30
+
+    (26) expression -> expression DIVIDE . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 56
+    factor                         shift and go to state 18
+
+state 31
+
+    (27) expression -> expression MOD . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 57
+    factor                         shift and go to state 18
+
+state 32
+
+    (28) expression -> expression LESS . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 58
+    factor                         shift and go to state 18
+
+state 33
+
+    (29) expression -> expression LESSEQUAL . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 59
+    factor                         shift and go to state 18
+
+state 34
+
+    (30) expression -> expression GREATER . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 60
+    factor                         shift and go to state 18
+
+state 35
+
+    (31) expression -> expression GREATEQUAL . term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    term                           shift and go to state 61
+    factor                         shift and go to state 18
+
+state 36
+
+    (17) read -> INPUT LPAREN . RPAREN
+
+    RPAREN          shift and go to state 62
+
+
+state 37
+
+    (42) factor -> LPAREN expression . RPAREN
+    (23) expression -> expression . PLUS term
+    (24) expression -> expression . MINUS term
+    (25) expression -> expression . TIMES term
+    (26) expression -> expression . DIVIDE term
+    (27) expression -> expression . MOD term
+    (28) expression -> expression . LESS term
+    (29) expression -> expression . LESSEQUAL term
+    (30) expression -> expression . GREATER term
+    (31) expression -> expression . GREATEQUAL term
+
+    RPAREN          shift and go to state 63
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    TIMES           shift and go to state 29
+    DIVIDE          shift and go to state 30
+    MOD             shift and go to state 31
+    LESS            shift and go to state 32
+    LESSEQUAL       shift and go to state 33
+    GREATER         shift and go to state 34
+    GREATEQUAL      shift and go to state 35
+
+
+state 38
+
+    (43) factor -> LPAREN STRINGVARIBABLE . RPAREN
+
+    RPAREN          shift and go to state 64
+
+
+state 39
+
+    (44) factor -> LPAREN INTEGERVARIBABLE . RPAREN
+
+    RPAREN          shift and go to state 65
+
+
+state 40
+
+    (22) expression -> term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    RPAREN          reduce using rule 22 (expression -> term .)
+    PLUS            reduce using rule 22 (expression -> term .)
+    MINUS           reduce using rule 22 (expression -> term .)
+    LESSEQUAL       reduce using rule 22 (expression -> term .)
+    COLON           reduce using rule 22 (expression -> term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 22 (expression -> term .) ]
+  ! DIVIDE          [ reduce using rule 22 (expression -> term .) ]
+  ! MOD             [ reduce using rule 22 (expression -> term .) ]
+  ! LESS            [ reduce using rule 22 (expression -> term .) ]
+  ! GREATER         [ reduce using rule 22 (expression -> term .) ]
+  ! GREATEQUAL      [ reduce using rule 22 (expression -> term .) ]
+
+
+state 41
+
+    (8) write -> PRINT LPAREN . expression RPAREN
+    (9) write -> PRINT LPAREN . STRINGVARIBABLE RPAREN
+    (10) write -> PRINT LPAREN . INTEGERVARIBABLE RPAREN
+    (11) write -> PRINT LPAREN . NUMBER RPAREN
+    (12) write -> PRINT LPAREN . STRING RPAREN
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    STRINGVARIBABLE shift and go to state 67
+    INTEGERVARIBABLE shift and go to state 68
+    NUMBER          shift and go to state 69
+    STRING          shift and go to state 70
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 66
+    term                           shift and go to state 40
+    factor                         shift and go to state 18
+
+state 42
+
+    (16) for -> FOR expression . COLON body
+    (23) expression -> expression . PLUS term
+    (24) expression -> expression . MINUS term
+    (25) expression -> expression . TIMES term
+    (26) expression -> expression . DIVIDE term
+    (27) expression -> expression . MOD term
+    (28) expression -> expression . LESS term
+    (29) expression -> expression . LESSEQUAL term
+    (30) expression -> expression . GREATER term
+    (31) expression -> expression . GREATEQUAL term
+
+    COLON           shift and go to state 71
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    TIMES           shift and go to state 29
+    DIVIDE          shift and go to state 30
+    MOD             shift and go to state 31
+    LESS            shift and go to state 32
+    LESSEQUAL       shift and go to state 33
+    GREATER         shift and go to state 34
+    GREATEQUAL      shift and go to state 35
+
+
+state 43
+
+    (15) while -> WHILE expression . COLON body
+    (23) expression -> expression . PLUS term
+    (24) expression -> expression . MINUS term
+    (25) expression -> expression . TIMES term
+    (26) expression -> expression . DIVIDE term
+    (27) expression -> expression . MOD term
+    (28) expression -> expression . LESS term
+    (29) expression -> expression . LESSEQUAL term
+    (30) expression -> expression . GREATER term
+    (31) expression -> expression . GREATEQUAL term
+
+    COLON           shift and go to state 72
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    TIMES           shift and go to state 29
+    DIVIDE          shift and go to state 30
+    MOD             shift and go to state 31
+    LESS            shift and go to state 32
+    LESSEQUAL       shift and go to state 33
+    GREATER         shift and go to state 34
+    GREATEQUAL      shift and go to state 35
+
+
+state 44
+
+    (13) if -> IF expression . COLON body
+    (14) if -> IF expression . COLON body ELSE COLON body
+    (23) expression -> expression . PLUS term
+    (24) expression -> expression . MINUS term
+    (25) expression -> expression . TIMES term
+    (26) expression -> expression . DIVIDE term
+    (27) expression -> expression . MOD term
+    (28) expression -> expression . LESS term
+    (29) expression -> expression . LESSEQUAL term
+    (30) expression -> expression . GREATER term
+    (31) expression -> expression . GREATEQUAL term
+
+    COLON           shift and go to state 73
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    TIMES           shift and go to state 29
+    DIVIDE          shift and go to state 30
+    MOD             shift and go to state 31
+    LESS            shift and go to state 32
+    LESSEQUAL       shift and go to state 33
+    GREATER         shift and go to state 34
+    GREATEQUAL      shift and go to state 35
+
+
+state 45
+
+    (32) term -> term TIMES factor .
+
+    TIMES           reduce using rule 32 (term -> term TIMES factor .)
+    DIVIDE          reduce using rule 32 (term -> term TIMES factor .)
+    MOD             reduce using rule 32 (term -> term TIMES factor .)
+    LESS            reduce using rule 32 (term -> term TIMES factor .)
+    GREATER         reduce using rule 32 (term -> term TIMES factor .)
+    GREATEQUAL      reduce using rule 32 (term -> term TIMES factor .)
+    EQUAL           reduce using rule 32 (term -> term TIMES factor .)
+    EQUALTO         reduce using rule 32 (term -> term TIMES factor .)
+    $end            reduce using rule 32 (term -> term TIMES factor .)
+    PLUS            reduce using rule 32 (term -> term TIMES factor .)
+    MINUS           reduce using rule 32 (term -> term TIMES factor .)
+    LESSEQUAL       reduce using rule 32 (term -> term TIMES factor .)
+    RPAREN          reduce using rule 32 (term -> term TIMES factor .)
+    COLON           reduce using rule 32 (term -> term TIMES factor .)
+    ELSE            reduce using rule 32 (term -> term TIMES factor .)
+
+
+state 46
+
+    (33) term -> term DIVIDE factor .
+
+    TIMES           reduce using rule 33 (term -> term DIVIDE factor .)
+    DIVIDE          reduce using rule 33 (term -> term DIVIDE factor .)
+    MOD             reduce using rule 33 (term -> term DIVIDE factor .)
+    LESS            reduce using rule 33 (term -> term DIVIDE factor .)
+    GREATER         reduce using rule 33 (term -> term DIVIDE factor .)
+    GREATEQUAL      reduce using rule 33 (term -> term DIVIDE factor .)
+    EQUAL           reduce using rule 33 (term -> term DIVIDE factor .)
+    EQUALTO         reduce using rule 33 (term -> term DIVIDE factor .)
+    $end            reduce using rule 33 (term -> term DIVIDE factor .)
+    PLUS            reduce using rule 33 (term -> term DIVIDE factor .)
+    MINUS           reduce using rule 33 (term -> term DIVIDE factor .)
+    LESSEQUAL       reduce using rule 33 (term -> term DIVIDE factor .)
+    RPAREN          reduce using rule 33 (term -> term DIVIDE factor .)
+    COLON           reduce using rule 33 (term -> term DIVIDE factor .)
+    ELSE            reduce using rule 33 (term -> term DIVIDE factor .)
+
+
+state 47
+
+    (34) term -> term MOD factor .
+
+    TIMES           reduce using rule 34 (term -> term MOD factor .)
+    DIVIDE          reduce using rule 34 (term -> term MOD factor .)
+    MOD             reduce using rule 34 (term -> term MOD factor .)
+    LESS            reduce using rule 34 (term -> term MOD factor .)
+    GREATER         reduce using rule 34 (term -> term MOD factor .)
+    GREATEQUAL      reduce using rule 34 (term -> term MOD factor .)
+    EQUAL           reduce using rule 34 (term -> term MOD factor .)
+    EQUALTO         reduce using rule 34 (term -> term MOD factor .)
+    $end            reduce using rule 34 (term -> term MOD factor .)
+    PLUS            reduce using rule 34 (term -> term MOD factor .)
+    MINUS           reduce using rule 34 (term -> term MOD factor .)
+    LESSEQUAL       reduce using rule 34 (term -> term MOD factor .)
+    RPAREN          reduce using rule 34 (term -> term MOD factor .)
+    COLON           reduce using rule 34 (term -> term MOD factor .)
+    ELSE            reduce using rule 34 (term -> term MOD factor .)
+
+
+state 48
+
+    (35) term -> term LESS factor .
+
+    TIMES           reduce using rule 35 (term -> term LESS factor .)
+    DIVIDE          reduce using rule 35 (term -> term LESS factor .)
+    MOD             reduce using rule 35 (term -> term LESS factor .)
+    LESS            reduce using rule 35 (term -> term LESS factor .)
+    GREATER         reduce using rule 35 (term -> term LESS factor .)
+    GREATEQUAL      reduce using rule 35 (term -> term LESS factor .)
+    EQUAL           reduce using rule 35 (term -> term LESS factor .)
+    EQUALTO         reduce using rule 35 (term -> term LESS factor .)
+    $end            reduce using rule 35 (term -> term LESS factor .)
+    PLUS            reduce using rule 35 (term -> term LESS factor .)
+    MINUS           reduce using rule 35 (term -> term LESS factor .)
+    LESSEQUAL       reduce using rule 35 (term -> term LESS factor .)
+    RPAREN          reduce using rule 35 (term -> term LESS factor .)
+    COLON           reduce using rule 35 (term -> term LESS factor .)
+    ELSE            reduce using rule 35 (term -> term LESS factor .)
+
+
+state 49
+
+    (36) term -> term GREATER factor .
+
+    TIMES           reduce using rule 36 (term -> term GREATER factor .)
+    DIVIDE          reduce using rule 36 (term -> term GREATER factor .)
+    MOD             reduce using rule 36 (term -> term GREATER factor .)
+    LESS            reduce using rule 36 (term -> term GREATER factor .)
+    GREATER         reduce using rule 36 (term -> term GREATER factor .)
+    GREATEQUAL      reduce using rule 36 (term -> term GREATER factor .)
+    EQUAL           reduce using rule 36 (term -> term GREATER factor .)
+    EQUALTO         reduce using rule 36 (term -> term GREATER factor .)
+    $end            reduce using rule 36 (term -> term GREATER factor .)
+    PLUS            reduce using rule 36 (term -> term GREATER factor .)
+    MINUS           reduce using rule 36 (term -> term GREATER factor .)
+    LESSEQUAL       reduce using rule 36 (term -> term GREATER factor .)
+    RPAREN          reduce using rule 36 (term -> term GREATER factor .)
+    COLON           reduce using rule 36 (term -> term GREATER factor .)
+    ELSE            reduce using rule 36 (term -> term GREATER factor .)
+
+
+state 50
+
+    (37) term -> term GREATEQUAL factor .
+
+    TIMES           reduce using rule 37 (term -> term GREATEQUAL factor .)
+    DIVIDE          reduce using rule 37 (term -> term GREATEQUAL factor .)
+    MOD             reduce using rule 37 (term -> term GREATEQUAL factor .)
+    LESS            reduce using rule 37 (term -> term GREATEQUAL factor .)
+    GREATER         reduce using rule 37 (term -> term GREATEQUAL factor .)
+    GREATEQUAL      reduce using rule 37 (term -> term GREATEQUAL factor .)
+    EQUAL           reduce using rule 37 (term -> term GREATEQUAL factor .)
+    EQUALTO         reduce using rule 37 (term -> term GREATEQUAL factor .)
+    $end            reduce using rule 37 (term -> term GREATEQUAL factor .)
+    PLUS            reduce using rule 37 (term -> term GREATEQUAL factor .)
+    MINUS           reduce using rule 37 (term -> term GREATEQUAL factor .)
+    LESSEQUAL       reduce using rule 37 (term -> term GREATEQUAL factor .)
+    RPAREN          reduce using rule 37 (term -> term GREATEQUAL factor .)
+    COLON           reduce using rule 37 (term -> term GREATEQUAL factor .)
+    ELSE            reduce using rule 37 (term -> term GREATEQUAL factor .)
+
+
+state 51
+
+    (38) term -> term EQUAL factor .
+
+    TIMES           reduce using rule 38 (term -> term EQUAL factor .)
+    DIVIDE          reduce using rule 38 (term -> term EQUAL factor .)
+    MOD             reduce using rule 38 (term -> term EQUAL factor .)
+    LESS            reduce using rule 38 (term -> term EQUAL factor .)
+    GREATER         reduce using rule 38 (term -> term EQUAL factor .)
+    GREATEQUAL      reduce using rule 38 (term -> term EQUAL factor .)
+    EQUAL           reduce using rule 38 (term -> term EQUAL factor .)
+    EQUALTO         reduce using rule 38 (term -> term EQUAL factor .)
+    $end            reduce using rule 38 (term -> term EQUAL factor .)
+    PLUS            reduce using rule 38 (term -> term EQUAL factor .)
+    MINUS           reduce using rule 38 (term -> term EQUAL factor .)
+    LESSEQUAL       reduce using rule 38 (term -> term EQUAL factor .)
+    RPAREN          reduce using rule 38 (term -> term EQUAL factor .)
+    COLON           reduce using rule 38 (term -> term EQUAL factor .)
+    ELSE            reduce using rule 38 (term -> term EQUAL factor .)
+
+
+state 52
+
+    (39) term -> term EQUALTO factor .
+
+    TIMES           reduce using rule 39 (term -> term EQUALTO factor .)
+    DIVIDE          reduce using rule 39 (term -> term EQUALTO factor .)
+    MOD             reduce using rule 39 (term -> term EQUALTO factor .)
+    LESS            reduce using rule 39 (term -> term EQUALTO factor .)
+    GREATER         reduce using rule 39 (term -> term EQUALTO factor .)
+    GREATEQUAL      reduce using rule 39 (term -> term EQUALTO factor .)
+    EQUAL           reduce using rule 39 (term -> term EQUALTO factor .)
+    EQUALTO         reduce using rule 39 (term -> term EQUALTO factor .)
+    $end            reduce using rule 39 (term -> term EQUALTO factor .)
+    PLUS            reduce using rule 39 (term -> term EQUALTO factor .)
+    MINUS           reduce using rule 39 (term -> term EQUALTO factor .)
+    LESSEQUAL       reduce using rule 39 (term -> term EQUALTO factor .)
+    RPAREN          reduce using rule 39 (term -> term EQUALTO factor .)
+    COLON           reduce using rule 39 (term -> term EQUALTO factor .)
+    ELSE            reduce using rule 39 (term -> term EQUALTO factor .)
+
+
+state 53
+
+    (23) expression -> expression PLUS term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 23 (expression -> expression PLUS term .)
+    MINUS           reduce using rule 23 (expression -> expression PLUS term .)
+    LESSEQUAL       reduce using rule 23 (expression -> expression PLUS term .)
+    $end            reduce using rule 23 (expression -> expression PLUS term .)
+    RPAREN          reduce using rule 23 (expression -> expression PLUS term .)
+    COLON           reduce using rule 23 (expression -> expression PLUS term .)
+    ELSE            reduce using rule 23 (expression -> expression PLUS term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 23 (expression -> expression PLUS term .) ]
+  ! DIVIDE          [ reduce using rule 23 (expression -> expression PLUS term .) ]
+  ! MOD             [ reduce using rule 23 (expression -> expression PLUS term .) ]
+  ! LESS            [ reduce using rule 23 (expression -> expression PLUS term .) ]
+  ! GREATER         [ reduce using rule 23 (expression -> expression PLUS term .) ]
+  ! GREATEQUAL      [ reduce using rule 23 (expression -> expression PLUS term .) ]
+
+
+state 54
+
+    (24) expression -> expression MINUS term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 24 (expression -> expression MINUS term .)
+    MINUS           reduce using rule 24 (expression -> expression MINUS term .)
+    LESSEQUAL       reduce using rule 24 (expression -> expression MINUS term .)
+    $end            reduce using rule 24 (expression -> expression MINUS term .)
+    RPAREN          reduce using rule 24 (expression -> expression MINUS term .)
+    COLON           reduce using rule 24 (expression -> expression MINUS term .)
+    ELSE            reduce using rule 24 (expression -> expression MINUS term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 24 (expression -> expression MINUS term .) ]
+  ! DIVIDE          [ reduce using rule 24 (expression -> expression MINUS term .) ]
+  ! MOD             [ reduce using rule 24 (expression -> expression MINUS term .) ]
+  ! LESS            [ reduce using rule 24 (expression -> expression MINUS term .) ]
+  ! GREATER         [ reduce using rule 24 (expression -> expression MINUS term .) ]
+  ! GREATEQUAL      [ reduce using rule 24 (expression -> expression MINUS term .) ]
+
+
+state 55
+
+    (25) expression -> expression TIMES term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 25 (expression -> expression TIMES term .)
+    MINUS           reduce using rule 25 (expression -> expression TIMES term .)
+    LESSEQUAL       reduce using rule 25 (expression -> expression TIMES term .)
+    $end            reduce using rule 25 (expression -> expression TIMES term .)
+    RPAREN          reduce using rule 25 (expression -> expression TIMES term .)
+    COLON           reduce using rule 25 (expression -> expression TIMES term .)
+    ELSE            reduce using rule 25 (expression -> expression TIMES term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 25 (expression -> expression TIMES term .) ]
+  ! DIVIDE          [ reduce using rule 25 (expression -> expression TIMES term .) ]
+  ! MOD             [ reduce using rule 25 (expression -> expression TIMES term .) ]
+  ! LESS            [ reduce using rule 25 (expression -> expression TIMES term .) ]
+  ! GREATER         [ reduce using rule 25 (expression -> expression TIMES term .) ]
+  ! GREATEQUAL      [ reduce using rule 25 (expression -> expression TIMES term .) ]
+
+
+state 56
+
+    (26) expression -> expression DIVIDE term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 26 (expression -> expression DIVIDE term .)
+    MINUS           reduce using rule 26 (expression -> expression DIVIDE term .)
+    LESSEQUAL       reduce using rule 26 (expression -> expression DIVIDE term .)
+    $end            reduce using rule 26 (expression -> expression DIVIDE term .)
+    RPAREN          reduce using rule 26 (expression -> expression DIVIDE term .)
+    COLON           reduce using rule 26 (expression -> expression DIVIDE term .)
+    ELSE            reduce using rule 26 (expression -> expression DIVIDE term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 26 (expression -> expression DIVIDE term .) ]
+  ! DIVIDE          [ reduce using rule 26 (expression -> expression DIVIDE term .) ]
+  ! MOD             [ reduce using rule 26 (expression -> expression DIVIDE term .) ]
+  ! LESS            [ reduce using rule 26 (expression -> expression DIVIDE term .) ]
+  ! GREATER         [ reduce using rule 26 (expression -> expression DIVIDE term .) ]
+  ! GREATEQUAL      [ reduce using rule 26 (expression -> expression DIVIDE term .) ]
+
+
+state 57
+
+    (27) expression -> expression MOD term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 27 (expression -> expression MOD term .)
+    MINUS           reduce using rule 27 (expression -> expression MOD term .)
+    LESSEQUAL       reduce using rule 27 (expression -> expression MOD term .)
+    $end            reduce using rule 27 (expression -> expression MOD term .)
+    RPAREN          reduce using rule 27 (expression -> expression MOD term .)
+    COLON           reduce using rule 27 (expression -> expression MOD term .)
+    ELSE            reduce using rule 27 (expression -> expression MOD term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 27 (expression -> expression MOD term .) ]
+  ! DIVIDE          [ reduce using rule 27 (expression -> expression MOD term .) ]
+  ! MOD             [ reduce using rule 27 (expression -> expression MOD term .) ]
+  ! LESS            [ reduce using rule 27 (expression -> expression MOD term .) ]
+  ! GREATER         [ reduce using rule 27 (expression -> expression MOD term .) ]
+  ! GREATEQUAL      [ reduce using rule 27 (expression -> expression MOD term .) ]
+
+
+state 58
+
+    (28) expression -> expression LESS term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 28 (expression -> expression LESS term .)
+    MINUS           reduce using rule 28 (expression -> expression LESS term .)
+    LESSEQUAL       reduce using rule 28 (expression -> expression LESS term .)
+    $end            reduce using rule 28 (expression -> expression LESS term .)
+    RPAREN          reduce using rule 28 (expression -> expression LESS term .)
+    COLON           reduce using rule 28 (expression -> expression LESS term .)
+    ELSE            reduce using rule 28 (expression -> expression LESS term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 28 (expression -> expression LESS term .) ]
+  ! DIVIDE          [ reduce using rule 28 (expression -> expression LESS term .) ]
+  ! MOD             [ reduce using rule 28 (expression -> expression LESS term .) ]
+  ! LESS            [ reduce using rule 28 (expression -> expression LESS term .) ]
+  ! GREATER         [ reduce using rule 28 (expression -> expression LESS term .) ]
+  ! GREATEQUAL      [ reduce using rule 28 (expression -> expression LESS term .) ]
+
+
+state 59
+
+    (29) expression -> expression LESSEQUAL term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 29 (expression -> expression LESSEQUAL term .)
+    MINUS           reduce using rule 29 (expression -> expression LESSEQUAL term .)
+    LESSEQUAL       reduce using rule 29 (expression -> expression LESSEQUAL term .)
+    $end            reduce using rule 29 (expression -> expression LESSEQUAL term .)
+    RPAREN          reduce using rule 29 (expression -> expression LESSEQUAL term .)
+    COLON           reduce using rule 29 (expression -> expression LESSEQUAL term .)
+    ELSE            reduce using rule 29 (expression -> expression LESSEQUAL term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 29 (expression -> expression LESSEQUAL term .) ]
+  ! DIVIDE          [ reduce using rule 29 (expression -> expression LESSEQUAL term .) ]
+  ! MOD             [ reduce using rule 29 (expression -> expression LESSEQUAL term .) ]
+  ! LESS            [ reduce using rule 29 (expression -> expression LESSEQUAL term .) ]
+  ! GREATER         [ reduce using rule 29 (expression -> expression LESSEQUAL term .) ]
+  ! GREATEQUAL      [ reduce using rule 29 (expression -> expression LESSEQUAL term .) ]
+
+
+state 60
+
+    (30) expression -> expression GREATER term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 30 (expression -> expression GREATER term .)
+    MINUS           reduce using rule 30 (expression -> expression GREATER term .)
+    LESSEQUAL       reduce using rule 30 (expression -> expression GREATER term .)
+    $end            reduce using rule 30 (expression -> expression GREATER term .)
+    RPAREN          reduce using rule 30 (expression -> expression GREATER term .)
+    COLON           reduce using rule 30 (expression -> expression GREATER term .)
+    ELSE            reduce using rule 30 (expression -> expression GREATER term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 30 (expression -> expression GREATER term .) ]
+  ! DIVIDE          [ reduce using rule 30 (expression -> expression GREATER term .) ]
+  ! MOD             [ reduce using rule 30 (expression -> expression GREATER term .) ]
+  ! LESS            [ reduce using rule 30 (expression -> expression GREATER term .) ]
+  ! GREATER         [ reduce using rule 30 (expression -> expression GREATER term .) ]
+  ! GREATEQUAL      [ reduce using rule 30 (expression -> expression GREATER term .) ]
+
+
+state 61
+
+    (31) expression -> expression GREATEQUAL term .
+    (32) term -> term . TIMES factor
+    (33) term -> term . DIVIDE factor
+    (34) term -> term . MOD factor
+    (35) term -> term . LESS factor
+    (36) term -> term . GREATER factor
+    (37) term -> term . GREATEQUAL factor
+    (38) term -> term . EQUAL factor
+    (39) term -> term . EQUALTO factor
+
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for MOD resolved as shift
+  ! shift/reduce conflict for LESS resolved as shift
+  ! shift/reduce conflict for GREATER resolved as shift
+  ! shift/reduce conflict for GREATEQUAL resolved as shift
+    PLUS            reduce using rule 31 (expression -> expression GREATEQUAL term .)
+    MINUS           reduce using rule 31 (expression -> expression GREATEQUAL term .)
+    LESSEQUAL       reduce using rule 31 (expression -> expression GREATEQUAL term .)
+    $end            reduce using rule 31 (expression -> expression GREATEQUAL term .)
+    RPAREN          reduce using rule 31 (expression -> expression GREATEQUAL term .)
+    COLON           reduce using rule 31 (expression -> expression GREATEQUAL term .)
+    ELSE            reduce using rule 31 (expression -> expression GREATEQUAL term .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 20
+    MOD             shift and go to state 21
+    LESS            shift and go to state 22
+    GREATER         shift and go to state 23
+    GREATEQUAL      shift and go to state 24
+    EQUAL           shift and go to state 25
+    EQUALTO         shift and go to state 26
+
+  ! TIMES           [ reduce using rule 31 (expression -> expression GREATEQUAL term .) ]
+  ! DIVIDE          [ reduce using rule 31 (expression -> expression GREATEQUAL term .) ]
+  ! MOD             [ reduce using rule 31 (expression -> expression GREATEQUAL term .) ]
+  ! LESS            [ reduce using rule 31 (expression -> expression GREATEQUAL term .) ]
+  ! GREATER         [ reduce using rule 31 (expression -> expression GREATEQUAL term .) ]
+  ! GREATEQUAL      [ reduce using rule 31 (expression -> expression GREATEQUAL term .) ]
+
+
+state 62
+
+    (17) read -> INPUT LPAREN RPAREN .
+
+    $end            reduce using rule 17 (read -> INPUT LPAREN RPAREN .)
+    ELSE            reduce using rule 17 (read -> INPUT LPAREN RPAREN .)
+
+
+state 63
+
+    (42) factor -> LPAREN expression RPAREN .
+
+    TIMES           reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    MOD             reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    LESS            reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    GREATER         reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    GREATEQUAL      reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    EQUAL           reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    EQUALTO         reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    $end            reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    LESSEQUAL       reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    COLON           reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+    ELSE            reduce using rule 42 (factor -> LPAREN expression RPAREN .)
+
+
+state 64
+
+    (43) factor -> LPAREN STRINGVARIBABLE RPAREN .
+
+    TIMES           reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    DIVIDE          reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    MOD             reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    LESS            reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    GREATER         reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    GREATEQUAL      reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    EQUAL           reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    EQUALTO         reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    $end            reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    PLUS            reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    MINUS           reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    LESSEQUAL       reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    RPAREN          reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    COLON           reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+    ELSE            reduce using rule 43 (factor -> LPAREN STRINGVARIBABLE RPAREN .)
+
+
+state 65
+
+    (44) factor -> LPAREN INTEGERVARIBABLE RPAREN .
+
+    TIMES           reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    DIVIDE          reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    MOD             reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    LESS            reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    GREATER         reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    GREATEQUAL      reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    EQUAL           reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    EQUALTO         reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    $end            reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    PLUS            reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    MINUS           reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    LESSEQUAL       reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    RPAREN          reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    COLON           reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+    ELSE            reduce using rule 44 (factor -> LPAREN INTEGERVARIBABLE RPAREN .)
+
+
+state 66
+
+    (8) write -> PRINT LPAREN expression . RPAREN
+    (23) expression -> expression . PLUS term
+    (24) expression -> expression . MINUS term
+    (25) expression -> expression . TIMES term
+    (26) expression -> expression . DIVIDE term
+    (27) expression -> expression . MOD term
+    (28) expression -> expression . LESS term
+    (29) expression -> expression . LESSEQUAL term
+    (30) expression -> expression . GREATER term
+    (31) expression -> expression . GREATEQUAL term
+
+    RPAREN          shift and go to state 74
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    TIMES           shift and go to state 29
+    DIVIDE          shift and go to state 30
+    MOD             shift and go to state 31
+    LESS            shift and go to state 32
+    LESSEQUAL       shift and go to state 33
+    GREATER         shift and go to state 34
+    GREATEQUAL      shift and go to state 35
+
+
+state 67
+
+    (9) write -> PRINT LPAREN STRINGVARIBABLE . RPAREN
+
+    RPAREN          shift and go to state 75
+
+
+state 68
+
+    (10) write -> PRINT LPAREN INTEGERVARIBABLE . RPAREN
+
+    RPAREN          shift and go to state 76
+
+
+state 69
+
+    (11) write -> PRINT LPAREN NUMBER . RPAREN
+    (41) factor -> NUMBER .
+
+  ! shift/reduce conflict for RPAREN resolved as shift
+    RPAREN          shift and go to state 77
+    TIMES           reduce using rule 41 (factor -> NUMBER .)
+    DIVIDE          reduce using rule 41 (factor -> NUMBER .)
+    MOD             reduce using rule 41 (factor -> NUMBER .)
+    LESS            reduce using rule 41 (factor -> NUMBER .)
+    GREATER         reduce using rule 41 (factor -> NUMBER .)
+    GREATEQUAL      reduce using rule 41 (factor -> NUMBER .)
+    EQUAL           reduce using rule 41 (factor -> NUMBER .)
+    EQUALTO         reduce using rule 41 (factor -> NUMBER .)
+    PLUS            reduce using rule 41 (factor -> NUMBER .)
+    MINUS           reduce using rule 41 (factor -> NUMBER .)
+    LESSEQUAL       reduce using rule 41 (factor -> NUMBER .)
+
+  ! RPAREN          [ reduce using rule 41 (factor -> NUMBER .) ]
+
+
+state 70
+
+    (12) write -> PRINT LPAREN STRING . RPAREN
+
+    RPAREN          shift and go to state 78
+
+
+state 71
+
+    (16) for -> FOR expression COLON . body
+    (20) body -> . statement_list
+    (21) body -> . statement
+    (1) statement_list -> . statement
+    (2) statement -> . store
+    (3) statement -> . read
+    (4) statement -> . write
+    (5) statement -> . for
+    (6) statement -> . while
+    (7) statement -> . if
+    (18) store -> . term
+    (19) store -> . expression
+    (17) read -> . INPUT LPAREN RPAREN
+    (8) write -> . PRINT LPAREN expression RPAREN
+    (9) write -> . PRINT LPAREN STRINGVARIBABLE RPAREN
+    (10) write -> . PRINT LPAREN INTEGERVARIBABLE RPAREN
+    (11) write -> . PRINT LPAREN NUMBER RPAREN
+    (12) write -> . PRINT LPAREN STRING RPAREN
+    (16) for -> . FOR expression COLON body
+    (15) while -> . WHILE expression COLON body
+    (13) if -> . IF expression COLON body
+    (14) if -> . IF expression COLON body ELSE COLON body
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    INPUT           shift and go to state 11
+    PRINT           shift and go to state 13
+    FOR             shift and go to state 15
+    WHILE           shift and go to state 16
+    IF              shift and go to state 17
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 10
+    body                           shift and go to state 79
+    statement_list                 shift and go to state 80
+    statement                      shift and go to state 81
+    store                          shift and go to state 3
+    read                           shift and go to state 4
+    write                          shift and go to state 5
+    for                            shift and go to state 6
+    while                          shift and go to state 7
+    if                             shift and go to state 8
+    term                           shift and go to state 9
+    factor                         shift and go to state 18
+
+state 72
+
+    (15) while -> WHILE expression COLON . body
+    (20) body -> . statement_list
+    (21) body -> . statement
+    (1) statement_list -> . statement
+    (2) statement -> . store
+    (3) statement -> . read
+    (4) statement -> . write
+    (5) statement -> . for
+    (6) statement -> . while
+    (7) statement -> . if
+    (18) store -> . term
+    (19) store -> . expression
+    (17) read -> . INPUT LPAREN RPAREN
+    (8) write -> . PRINT LPAREN expression RPAREN
+    (9) write -> . PRINT LPAREN STRINGVARIBABLE RPAREN
+    (10) write -> . PRINT LPAREN INTEGERVARIBABLE RPAREN
+    (11) write -> . PRINT LPAREN NUMBER RPAREN
+    (12) write -> . PRINT LPAREN STRING RPAREN
+    (16) for -> . FOR expression COLON body
+    (15) while -> . WHILE expression COLON body
+    (13) if -> . IF expression COLON body
+    (14) if -> . IF expression COLON body ELSE COLON body
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    INPUT           shift and go to state 11
+    PRINT           shift and go to state 13
+    FOR             shift and go to state 15
+    WHILE           shift and go to state 16
+    IF              shift and go to state 17
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 10
+    body                           shift and go to state 82
+    statement_list                 shift and go to state 80
+    statement                      shift and go to state 81
+    store                          shift and go to state 3
+    read                           shift and go to state 4
+    write                          shift and go to state 5
+    for                            shift and go to state 6
+    while                          shift and go to state 7
+    if                             shift and go to state 8
+    term                           shift and go to state 9
+    factor                         shift and go to state 18
+
+state 73
+
+    (13) if -> IF expression COLON . body
+    (14) if -> IF expression COLON . body ELSE COLON body
+    (20) body -> . statement_list
+    (21) body -> . statement
+    (1) statement_list -> . statement
+    (2) statement -> . store
+    (3) statement -> . read
+    (4) statement -> . write
+    (5) statement -> . for
+    (6) statement -> . while
+    (7) statement -> . if
+    (18) store -> . term
+    (19) store -> . expression
+    (17) read -> . INPUT LPAREN RPAREN
+    (8) write -> . PRINT LPAREN expression RPAREN
+    (9) write -> . PRINT LPAREN STRINGVARIBABLE RPAREN
+    (10) write -> . PRINT LPAREN INTEGERVARIBABLE RPAREN
+    (11) write -> . PRINT LPAREN NUMBER RPAREN
+    (12) write -> . PRINT LPAREN STRING RPAREN
+    (16) for -> . FOR expression COLON body
+    (15) while -> . WHILE expression COLON body
+    (13) if -> . IF expression COLON body
+    (14) if -> . IF expression COLON body ELSE COLON body
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    INPUT           shift and go to state 11
+    PRINT           shift and go to state 13
+    FOR             shift and go to state 15
+    WHILE           shift and go to state 16
+    IF              shift and go to state 17
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 10
+    body                           shift and go to state 83
+    statement_list                 shift and go to state 80
+    statement                      shift and go to state 81
+    store                          shift and go to state 3
+    read                           shift and go to state 4
+    write                          shift and go to state 5
+    for                            shift and go to state 6
+    while                          shift and go to state 7
+    if                             shift and go to state 8
+    term                           shift and go to state 9
+    factor                         shift and go to state 18
+
+state 74
+
+    (8) write -> PRINT LPAREN expression RPAREN .
+
+    $end            reduce using rule 8 (write -> PRINT LPAREN expression RPAREN .)
+    ELSE            reduce using rule 8 (write -> PRINT LPAREN expression RPAREN .)
+
+
+state 75
+
+    (9) write -> PRINT LPAREN STRINGVARIBABLE RPAREN .
+
+    $end            reduce using rule 9 (write -> PRINT LPAREN STRINGVARIBABLE RPAREN .)
+    ELSE            reduce using rule 9 (write -> PRINT LPAREN STRINGVARIBABLE RPAREN .)
+
+
+state 76
+
+    (10) write -> PRINT LPAREN INTEGERVARIBABLE RPAREN .
+
+    $end            reduce using rule 10 (write -> PRINT LPAREN INTEGERVARIBABLE RPAREN .)
+    ELSE            reduce using rule 10 (write -> PRINT LPAREN INTEGERVARIBABLE RPAREN .)
+
+
+state 77
+
+    (11) write -> PRINT LPAREN NUMBER RPAREN .
+
+    $end            reduce using rule 11 (write -> PRINT LPAREN NUMBER RPAREN .)
+    ELSE            reduce using rule 11 (write -> PRINT LPAREN NUMBER RPAREN .)
+
+
+state 78
+
+    (12) write -> PRINT LPAREN STRING RPAREN .
+
+    $end            reduce using rule 12 (write -> PRINT LPAREN STRING RPAREN .)
+    ELSE            reduce using rule 12 (write -> PRINT LPAREN STRING RPAREN .)
+
+
+state 79
+
+    (16) for -> FOR expression COLON body .
+
+    $end            reduce using rule 16 (for -> FOR expression COLON body .)
+    ELSE            reduce using rule 16 (for -> FOR expression COLON body .)
+
+
+state 80
+
+    (20) body -> statement_list .
+
+    $end            reduce using rule 20 (body -> statement_list .)
+    ELSE            reduce using rule 20 (body -> statement_list .)
+
+
+state 81
+
+    (21) body -> statement .
+    (1) statement_list -> statement .
+
+  ! reduce/reduce conflict for $end resolved using rule 1 (statement_list -> statement .)
+  ! reduce/reduce conflict for ELSE resolved using rule 1 (statement_list -> statement .)
+    $end            reduce using rule 1 (statement_list -> statement .)
+    ELSE            reduce using rule 1 (statement_list -> statement .)
+
+  ! $end            [ reduce using rule 21 (body -> statement .) ]
+  ! ELSE            [ reduce using rule 21 (body -> statement .) ]
+
+
+state 82
+
+    (15) while -> WHILE expression COLON body .
+
+    $end            reduce using rule 15 (while -> WHILE expression COLON body .)
+    ELSE            reduce using rule 15 (while -> WHILE expression COLON body .)
+
+
+state 83
+
+    (13) if -> IF expression COLON body .
+    (14) if -> IF expression COLON body . ELSE COLON body
+
+  ! shift/reduce conflict for ELSE resolved as shift
+    $end            reduce using rule 13 (if -> IF expression COLON body .)
+    ELSE            shift and go to state 84
+
+  ! ELSE            [ reduce using rule 13 (if -> IF expression COLON body .) ]
+
+
+state 84
+
+    (14) if -> IF expression COLON body ELSE . COLON body
+
+    COLON           shift and go to state 85
+
+
+state 85
+
+    (14) if -> IF expression COLON body ELSE COLON . body
+    (20) body -> . statement_list
+    (21) body -> . statement
+    (1) statement_list -> . statement
+    (2) statement -> . store
+    (3) statement -> . read
+    (4) statement -> . write
+    (5) statement -> . for
+    (6) statement -> . while
+    (7) statement -> . if
+    (18) store -> . term
+    (19) store -> . expression
+    (17) read -> . INPUT LPAREN RPAREN
+    (8) write -> . PRINT LPAREN expression RPAREN
+    (9) write -> . PRINT LPAREN STRINGVARIBABLE RPAREN
+    (10) write -> . PRINT LPAREN INTEGERVARIBABLE RPAREN
+    (11) write -> . PRINT LPAREN NUMBER RPAREN
+    (12) write -> . PRINT LPAREN STRING RPAREN
+    (16) for -> . FOR expression COLON body
+    (15) while -> . WHILE expression COLON body
+    (13) if -> . IF expression COLON body
+    (14) if -> . IF expression COLON body ELSE COLON body
+    (32) term -> . term TIMES factor
+    (33) term -> . term DIVIDE factor
+    (34) term -> . term MOD factor
+    (35) term -> . term LESS factor
+    (36) term -> . term GREATER factor
+    (37) term -> . term GREATEQUAL factor
+    (38) term -> . term EQUAL factor
+    (39) term -> . term EQUALTO factor
+    (40) term -> . factor
+    (22) expression -> . term
+    (23) expression -> . expression PLUS term
+    (24) expression -> . expression MINUS term
+    (25) expression -> . expression TIMES term
+    (26) expression -> . expression DIVIDE term
+    (27) expression -> . expression MOD term
+    (28) expression -> . expression LESS term
+    (29) expression -> . expression LESSEQUAL term
+    (30) expression -> . expression GREATER term
+    (31) expression -> . expression GREATEQUAL term
+    (41) factor -> . NUMBER
+    (42) factor -> . LPAREN expression RPAREN
+    (43) factor -> . LPAREN STRINGVARIBABLE RPAREN
+    (44) factor -> . LPAREN INTEGERVARIBABLE RPAREN
+
+    INPUT           shift and go to state 11
+    PRINT           shift and go to state 13
+    FOR             shift and go to state 15
+    WHILE           shift and go to state 16
+    IF              shift and go to state 17
+    NUMBER          shift and go to state 14
+    LPAREN          shift and go to state 12
+
+    expression                     shift and go to state 10
+    body                           shift and go to state 86
+    statement_list                 shift and go to state 80
+    statement                      shift and go to state 81
+    store                          shift and go to state 3
+    read                           shift and go to state 4
+    write                          shift and go to state 5
+    for                            shift and go to state 6
+    while                          shift and go to state 7
+    if                             shift and go to state 8
+    term                           shift and go to state 9
+    factor                         shift and go to state 18
+
+state 86
+
+    (14) if -> IF expression COLON body ELSE COLON body .
+
+    $end            reduce using rule 14 (if -> IF expression COLON body ELSE COLON body .)
+    ELSE            reduce using rule 14 (if -> IF expression COLON body ELSE COLON body .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for TIMES in state 9 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 9 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 9 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 9 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 9 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 9 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 40 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 40 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 40 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 40 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 40 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 40 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 53 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 53 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 53 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 53 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 53 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 53 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 54 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 54 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 54 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 54 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 54 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 54 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 55 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 55 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 55 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 55 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 55 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 55 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 56 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 56 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 56 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 56 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 56 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 56 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 57 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 57 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 57 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 57 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 57 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 57 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 58 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 58 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 58 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 58 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 58 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 58 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 59 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 59 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 59 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 59 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 59 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 59 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 60 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 60 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 60 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 60 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 60 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 60 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 61 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 61 resolved as shift
+WARNING: shift/reduce conflict for MOD in state 61 resolved as shift
+WARNING: shift/reduce conflict for LESS in state 61 resolved as shift
+WARNING: shift/reduce conflict for GREATER in state 61 resolved as shift
+WARNING: shift/reduce conflict for GREATEQUAL in state 61 resolved as shift
+WARNING: shift/reduce conflict for RPAREN in state 69 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 83 resolved as shift
+WARNING: reduce/reduce conflict in state 9 resolved using rule (store -> term)
+WARNING: rejected rule (expression -> term) in state 9
+WARNING: reduce/reduce conflict in state 81 resolved using rule (statement_list -> statement)
+WARNING: rejected rule (body -> statement) in state 81
+WARNING: Rule (body -> statement) is never reduced

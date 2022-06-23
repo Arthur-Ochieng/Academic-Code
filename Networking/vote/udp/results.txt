@@ -1,0 +1,2 @@
+Candidate 0 : 0
+Candidate 1 : 2
